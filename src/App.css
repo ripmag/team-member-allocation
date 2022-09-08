@@ -2,3 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+.standout {
+  box-shadow: 0 0 7px black;
+}

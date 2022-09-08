@@ -3,7 +3,7 @@ import imgF from './img/femaleProfile.jpg'
 import imgM from './img/maleProfile.jpg'
 const Employees = () => {
     const [selectedTeam, setTeam] = useState('TeamB')
-    const [employees, setRmployees] = useState([{
+    const [employees, setEmployees] = useState([{
         id: 1,
         fullName: "Bob Jones",
         designation: "JavaScript Developer",
@@ -88,14 +88,17 @@ const Employees = () => {
         teamName: "TeamD"
     }])
     function handleChangeTeam(event) {
-        console.log(event.target.value)
+        //console.log(event.target.value)
         setTeam(event.target.value)
     }
 
     function handleEmploeeClick(event) {
-        const transformedEmployed = employees.map((employee) => employee.id === parseInt(event.target.id)
+        
+        const transformedEmployed = employees.map((employee) => employee.id === parseInt(event.currentTarget.id)
             ? (employee.teamName === selectedTeam) ? { ...employee, teamName: '' } : { ...employee, teamName: selectedTeam }
             : employee)
+            setEmployees(transformedEmployed)
+            console.log(event.currentTarget)
     }
 
     return (
@@ -114,7 +117,7 @@ const Employees = () => {
                 <div class="col-8">
                     <div class="card-collection">
                         {employees.map(employee =>
-                            <div id={employee.id} className="card m-2" style={{ cursor: 'pointer' }} onClick={handleEmploeeClick} >
+                            <div id={employee.id} className={(employee.teamName===selectedTeam ? "card m-2 standout" : "card m-2")} style={{ cursor: 'pointer' }} onClick={handleEmploeeClick} >
                                 {employee.gender === "male" ? <img src={imgM} className="card-img-top" /> :
                                     <img src={imgF} className="card-img-top" />}
                                 <div className="card-body">
