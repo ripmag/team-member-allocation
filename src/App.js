@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import GroupedTeamMembers from './GroupedTeamMembers';
 import Nav from './Nav';
-import NotFound from './img/NotFound';
+import NotFound from './NotFound';
 
 
 function App() {
